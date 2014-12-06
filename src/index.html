@@ -1,0 +1,87 @@
+
+ <!doctype html>
+<html>
+  <head>
+    <title>COVERART</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    
+  </head>
+
+  <body>
+        <div class="wrapper">
+            <header class="clearfix" id="top">
+                <div class="logo col-sm-12 col-md-3">
+                    <a class="logo-content">
+                        <h1>COVER<em>ART</em></h1>
+                        <p>View a <em>collage</em> of your favorite <em>artists albums</em></p>
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-9 search-wrap">
+                    <form id="search-form" class="col-xs-12">
+                        <input type="text" placeholder="Search for an artist..." id="query" value="" class="" />
+                        <button type="submit" id="search" class="" value=""><i class="fa fa-search fa-2x"></i></button>
+                    </form>
+                </div>
+            </header>
+            <div id="project-info">
+                <section class="project-info-content">
+                   <a class="close-window" href="#"><i class="fa fa-times-circle fa-2x"></i></a>
+                    <div class="about-me">
+                       <h1>ABOUT THE PROJECT</h1>
+                       <p>The idea of this application is to showcase all the awesome album art for specific artists in the form of a picture grid collage.</p>
+                        <p>Created by the almighty CSS wizard and part time JS god, yours truly, the infinitely humble fine fish (finafisken).</p>
+                        <div class="social">
+                            <b>YOU CAN FIND ME HERE</b>
+                            <a href="https://twitter.com/finafisk3n" target="_blank"><i class="fa fa-twitter fa-3x"></i></a><a href="https://github.com/finafisken" target="_blank"><i class="fa fa-github fa-3x"></i></a>
+                        </div>
+                    </div>
+                    <div class="spotify">
+                        <p>POWERED BY</p>
+                        <a href="https://developer.spotify.com/web-api/" target="_blank"><i class="fa fa-spotify fa-lg"></i>Spotify Web API</a>
+                    </div>
+                    
+                </section>
+            </div>
+            <section id="artists"></section>
+            <section id="results"></section>
+            
+            <footer>
+                <div class="about-button"><a href="#project-info" class="pi-link">ABOUT</a></div>
+                <div id="back-to-top"><a href="#top"><i class="fa fa-chevron-up fa-2x"></i></a></div>
+            </footer>
+        </div>
+    </body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script id="results-template-albums" type="text/x-handlebars-template">
+    {{#each items}}
+            {{#if images.0.url}}
+            <div class="cwrap col-xs-6 col-sm-4 col-md-3">
+                <div class="hover" data-album-id="{{external_urls.spotify}}">
+                    <div class="hover-text">
+                    <p class="album-name" data-album-id="{{external_urls.spotify}}">{{name}}</p>
+                    </div>
+                </div>
+                <figure style="background-image:url({{images.0.url}})" class="cover"></figure>
+            </div>
+            {{else}}
+            <div class="cwrap col-xs-6 col-sm-4 col-md-3">
+                <figure style="background-image:url(http://placehold.it/640x640)" class="cover"></figure>
+            </div>
+            {{/if}}       
+    {{/each}}
+</script>
+<script id="results-template-artist" type="text/x-handlebars-template">
+    {{#each artists.items}}
+		<div class="artist">
+            <a class="artist-link" data-artist-id="{{id}}">{{name}}</a>
+		</div>
+    {{/each}}
+</script>
+<script src="../js/main.js"></script>
+</html>
