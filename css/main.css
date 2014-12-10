@@ -3,7 +3,8 @@ body{
     height: 100%;
     padding: 0px;
     margin: 0px;
-    background: url(../images/backgrounds.png);
+    background: #2e3643;
+    background-image: url(../images/backgrounds.jpg);
     color: #fff;
     font-family: 'Lato', sans-serif;
     background-size: cover;
@@ -70,6 +71,7 @@ a:visited{
     position: relative;
     font-family: 'Montserrat', sans-serif;
     top: 50%;
+	-webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
 }
@@ -87,9 +89,9 @@ span {
 }
 #artists{
     display: none;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
     background:rgba(0,0,0,0.2);
     color:#fff;
     text-align: center;
@@ -144,13 +146,62 @@ input[type="text"]{
 .logo h1{
     color:#db8438;
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 44px;
+    line-height: 66px;
+    font-weight: 900;
+    margin: 0 30px -6px 30px;
+    background: #2d3848;
+}
+.logo h1:before{
+    content:'';
+    border-bottom: 33px solid #2d3848;
+    border-top: 33px solid #2d3848;
+    border-left: 13px solid transparent;
+    border-right: 0px solid #2d3848;
+    position: absolute;
+    left:47px;
+}
+.logo h1:after{
+    content:'';
+    border-bottom: 33px solid #2d3848;
+    border-top: 33px solid #2d3848;
+    border-right: 13px solid transparent;
+    border-left: 0px solid #2d3848;
+    position: absolute;
+    right:47px;
+}
+
+.logo p:before{
+    content: '';
+    border-bottom: 10px solid #1b222c;
+    border-top: 10px solid #1b222c;
+    border-left: 10px solid transparent;
+    border-right: 15px solid #1b222c;
+    position: absolute;
+    left:-25px;
+    top:5px;
+    
+}
+.logo p:after{
+    content: '';
+    border-bottom: 10px solid #1b222c;
+    border-top: 10px solid #1b222c;
+    border-right: 10px solid transparent;
+    border-left: 15px solid #1b222c;
+    position: absolute;
+    right:-25px;
+    top:5px;
+    
 }
 .logo p{
-    color:rgba(255,255,255,0.3);
-    margin-top: -15px;
-    font-weight: 300;
+    padding: 5px 10px;
+    position: relative;
+    display: inline-block;
+    color:rgba(255,255,255,0.3);  
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    background: #202834;
 }
 .logo em{
     color:#fff;
@@ -158,9 +209,10 @@ input[type="text"]{
 }
 .logo-content, .logo-content:hover{
     display: block;
-    margin-top:60px;
+    margin-top:40px;
     border-bottom: 0px;
     cursor: pointer;
+    padding:0px 15px;
 }
 .search-wrap{
     padding: 0px;
@@ -188,7 +240,7 @@ input[type="text"]{
 }
 
 .project-info-content {
-        font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     width: 500px;
 	position: relative;
 	margin: 10% auto;
@@ -273,7 +325,7 @@ a.close-window:hover {
     bottom: 20px;
     height: 45px;
     vertical-align: middle;
-    background: rgba(46,56,71,0.7);
+    background: rgba(46,56,71,0.8);
     padding: 10px 20px;
      font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -285,7 +337,7 @@ a.close-window:hover {
     right: 20px;
     bottom: 20px;
     height: 50px;
-    background: rgba(46,56,71,0.7);
+    background: rgba(46,56,71,0.8);
     padding: 10px;
     cursor: pointer;
 }
@@ -296,7 +348,7 @@ a.close-window:hover {
     border-bottom: 0px;
 }
     
-@media (max-width:992px){
+@media (max-width:1200px){
     #search-form{
         height: 100px;
     }
@@ -304,6 +356,6 @@ a.close-window:hover {
         margin-top: 20px;
     }
     #search{
-        top:24px;
+        top:19px;
     }
 }
