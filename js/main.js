@@ -14,7 +14,7 @@ function searchAlbums(artistId) {
         }
     });
 };
-    
+
 function searchArtist(query) {
     $.ajax({
         url: 'https://api.spotify.com/v1/search?limit=10',
@@ -50,19 +50,11 @@ artistPlaceholder.addEventListener('click', function(e) {
 resultsPlaceholder.addEventListener('click', function(x) {
     var target = x.target,
     albumId = target.getAttribute('data-album-id');
-//    getAlbumInfo(albumId);
     window.open(albumId);
 });
 
-    
-
-//document.getElementById('search-form').addEventListener('submit', function (e) {
-//    e.preventDefault();
-//    searchArtist(document.getElementById('query').value);
-//    $('#artists').slideDown(400);
-//}, false);
 $( "#query" ).keyup(function() {
-  searchArtist(document.getElementById('query').value);
+    searchArtist(document.getElementById('query').value);
     $('#artists').slideDown(400);
 });
 
