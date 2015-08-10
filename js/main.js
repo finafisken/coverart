@@ -9,8 +9,15 @@ function searchAlbums(artistId) {
     $.ajax({
         url: 'https://api.spotify.com/v1/artists/' + artistId + '/albums?market=us&album_type=single,album&limit=50',
         success: function (response) {
-            resultsPlaceholder.innerHTML = templateAlbums(response);
             console.log(response);
+            //remove duplicates
+            for (var i = 0; i < response.items.length-1; i++) {
+              if (response.items[i].name === response.items[i+1].name){
+                  response.items.splice(i, 1);
+              }
+            }
+            resultsPlaceholder.innerHTML = templateAlbums(response);
+
         }
     });
 };
