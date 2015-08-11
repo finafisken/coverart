@@ -60,9 +60,15 @@ resultsPlaceholder.addEventListener('click', function(x) {
     window.open(albumId);
 });
 
-$( "#query" ).keyup(function() {
-    searchArtist(document.getElementById('query').value);
-    $('#artists').slideDown(400);
+document.getElementById('query').addEventListener("keyup", function() {
+    if (document.getElementById('query').value.length >= 1){
+          searchArtist(document.getElementById('query').value);
+          $('#artists').slideDown(400);
+    }
+    else{
+        $('#artists').slideUp(400);
+    }
+
 });
 
 $(window).scroll(function(){
@@ -73,7 +79,7 @@ $(window).scroll(function(){
     }
 });
 
-$('#back-to-top').click(function(){
+document.getElementById('back-to-top').addEventListener("click", function(){
     $('html, body').animate({scrollTop : 0},800);
     return false;
 });
